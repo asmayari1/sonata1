@@ -25,6 +25,16 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Sonata\NewsBundle\SonataNewsBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
 
 
         );

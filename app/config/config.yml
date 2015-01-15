@@ -70,6 +70,12 @@ doctrine:
                            ApplicationSonataUserBundle: ~
                            SonataUserBundle: ~
                            FOSUserBundle: ~
+                           SonataMediaBundle: ~
+                           ApplicationSonataMediaBundle: ~
+                           ApplicationSonataClassificationBundle: ~
+                           SonataClassificationBundle: ~
+                           #ApplicationSonataNewsBundle: ~
+                           SonataNewsBundle: ~
 
 
 swiftmailer:
@@ -108,5 +114,93 @@ fos_user:
 
      service:
          user_manager: sonata.user.orm.user_manager                      # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+#configurationSonataMedia
+sonata_media:
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
 
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+
+#configurationSonataNews
+sonata_news:
+    title:        Sonata Project
+    link:         http://sonata-project.org
+    description:  Cool bundles on top of Symfony2
+    salt:         'secureToken'
+    permalink_generator: sonata.news.permalink.date # sonata.news.permalink.category
+
+    comment:
+        notification:
+            emails:   [email@example.org, email2@example.org]
+            from:     no-reply@sonata-project.org
+            template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
+
+
+    title:        %sonata_news.blog_title%
+    link:         %sonata_news.blog_link%
+    description:  %sonata_news.blog_description%
+    salt:         %sonata_news.salt%
+
+    # permalink_generator: sonata.news.permalink.category # /party/new-year
+    permalink_generator: sonata.news.permalink.date # /2011/12/31/new-year
+
+    # comment options
+    comment:
+        notification:
+            emails:   %sonata_news.comment.emails%
+            from:     %sonata_news.comment.email_from%
+            template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
+
+
+
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
 
