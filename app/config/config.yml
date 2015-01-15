@@ -74,8 +74,10 @@ doctrine:
                            ApplicationSonataMediaBundle: ~
                            ApplicationSonataClassificationBundle: ~
                            SonataClassificationBundle: ~
-                           #ApplicationSonataNewsBundle: ~
+                           ApplicationSonataNewsBundle: ~
                            SonataNewsBundle: ~
+                           SonataNotificationBundle: ~
+                           ApplicationSonataNotificationBundle: ~
 
 
 swiftmailer:
@@ -203,4 +205,8 @@ sonata_formatter:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
+
+#configuration Sonata notification
+sonata_notification:
+    backend: sonata.notification.backend.runtime
 
