@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb8b4013-91cf-4f84-b9c8-1aa7618d69de" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sonata1.iws" />
@@ -355,7 +353,11 @@
       <created>1421354891383</created>
       <updated>1421354891383</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="projet sonata news+media+classification+notification">
+      <created>1421356362238</created>
+      <updated>1421356362238</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -397,7 +399,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="projet sonata news+media+classification" />
-    <option name="LAST_COMMIT_MESSAGE" value="projet sonata news+media+classification" />
+    <MESSAGE value="projet sonata news+media+classification+notification" />
+    <option name="LAST_COMMIT_MESSAGE" value="projet sonata news+media+classification+notification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
